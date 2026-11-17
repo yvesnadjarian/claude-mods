@@ -75,7 +75,27 @@ async function analyze($: EngineInterface, source: string) {
   }
 }
 
+// A prompt ending in "/melhorar" (e.g. "faça X /melhorar") is analyzed instead
+// of sent. Works in a new session, before the button has been drawn.
+const TRIGGER = /(?:^|\s)\/melhorar\s*$/i
+
+async function restoreDraft($: EngineInterface, text: string) {
+  // The composer clears itself after a send; put the draft back once it has.
+  await $.clock.sleep(300)
+  await $.prompt.fill({ text, mode: 'replace' })
+}
+
 export const register: Register = on => {
+  on('prompt.submit', async ($, e, next) => {
+    if (!TRIGGER.test(e.text)) return next(e)
+    const source = e.text.replace(TRIGGER, '').trim()
+    if (!source) return { drop: 'Escreva o prompt antes de /melhorar.' }
+    void analyze($, source)
+    void restoreDraft($, source)
+
+    return { drop: 'Melhorar Prompt: analisando… (o prompt não foi enviado ao Claude)' }
+  })
+
   on('session.start', async ($, e, next) => {
     await $.command.register({
       name: 'melhorar',
