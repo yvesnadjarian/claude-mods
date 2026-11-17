@@ -1,0 +1,11 @@
+{
+  "name": "yves-mods",
+  "owner": { "name": "yvesnadjarian" },
+  "plugins": [
+    {
+      "name": "melhorar-prompt",
+      "source": "./melhorar-prompt",
+      "description": "Botão \"Melhorar Prompt\": reescreve o prompt, faz perguntas de esclarecimento, aponta pontos cegos e sugere features."
+    }
+  ]
+}
