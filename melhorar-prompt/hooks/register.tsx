@@ -145,6 +145,12 @@ export const register: Register = on => {
             onPress={() => void $.ui.open({ id: PANE, title: TITLE, closeOnEscape: true })}
           />
         )}
+        {/* Opens the New Features Tier List mod's scan (its /tiers command), beside this button. */}
+        <Button
+          key="tier-list"
+          label="New Features Tier List"
+          onPress={() => void $.command.run({ command: 'tiers' })}
+        />
         {isLoading && <Text dimColor>analisando seu prompt…</Text>}
       </Box>
     )

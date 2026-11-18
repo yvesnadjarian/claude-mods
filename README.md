@@ -5,6 +5,7 @@ Mods for the Claude desktop app (Code tab) and Claude Code. Each folder is one m
 | Mod | What it does |
 | --- | --- |
 | [melhorar-prompt](melhorar-prompt/) | Adds a **✨ Melhorar Prompt** button above the prompt box and a `/melhorar` command. It rewrites your prompt and lists clarifying questions, blind spots and feature ideas (in Portuguese), with buttons to use the improved prompt or answer the questions. |
+| [tier-list-features](tier-list-features/) | Adds a **New Features Tier List** button next to Melhorar Prompt and a `/tiers` command. It scans the project and lists features and fixes in tiers S–D, each with a short ID, and lets you ask about any item. |
 
 ## Install
 

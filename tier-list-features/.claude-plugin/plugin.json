@@ -1,0 +1,10 @@
+{
+  "name": "tier-list-features",
+  "version": "0.1.0",
+  "description": "Botão \"New Features Tier List\": escaneia o projeto e gera uma lista priorizada (tiers S–D) de features e correções, com IDs para referenciar e perguntas por item.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "yvesnadjarian"
+  },
+  "license": "MIT"
+}
